@@ -1,0 +1,1 @@
+This project initializes the RCC clock and toggles PC13 using a basic delay loop
