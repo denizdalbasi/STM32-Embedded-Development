@@ -1,14 +1,6 @@
-/**
- * @file   main.c
- * @brief  Blinking LED example for STM32 based on LibOpenCM3.
- * @author ZiTe (honmonoh@gmail.com)
- * @copyright MIT License
- */
-
 #include <libopencm3/stm32/rcc.h>
 #include <libopencm3/stm32/gpio.h>
 
-/* User LED connected to Arduino-D13 pin. */
 #if defined(NUCLEO_F103RB) || \
     defined(NUCLEO_F401RE) || \
     defined(NUCLEO_F446RE)
@@ -41,10 +33,8 @@ static void delay(uint32_t value)
 
 int main(void)
 {
-  /* Enable clock. */
   rcc_periph_clock_enable(RCC_LED_GPIO);
 
-  /* Set LED pin to output push-pull. */
 #if defined(STM32F1)
   gpio_set_mode(GPIO_LED_PORT,
                 GPIO_MODE_OUTPUT_2_MHZ,
@@ -62,7 +52,6 @@ int main(void)
                           GPIO_LED_PIN);
 #endif
 
-  /* Start blinking. */
   while (1)
   {
     gpio_toggle(GPIO_LED_PORT, GPIO_LED_PIN); /* LED on/off. */
