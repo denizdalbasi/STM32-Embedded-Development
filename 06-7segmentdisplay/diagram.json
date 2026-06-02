@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-st-nucleo-c031c6", "id": "nucleo", "top": 0.83, "left": -0.98, "attrs": {} },
+    { 
+      "type": "wokwi-7segment", 
+      "id": "sevseg1", 
+      "top": 148.98, 
+      "left": -90.92, 
+      "attrs": { "common": "cathode" } 
+    }
+  ],
+  "connections": [
+    [ "$serialMonitor:TX", "nucleo:PA3", "", [] ],
+    [ "$serialMonitor:RX", "nucleo:PA2", "", [] ],
+    [ "nucleo:GND.2", "sevseg1:COM.1", "black", [] ],
+    [ "nucleo:PA4", "sevseg1:A", "green", [] ],
+    [ "nucleo:PA5", "sevseg1:B", "green", [] ],
+    [ "nucleo:PA6", "sevseg1:C", "green", [] ],
+    [ "nucleo:PA7", "sevseg1:D", "green", [] ],
+    [ "nucleo:PA8", "sevseg1:E", "green", [] ],
+    [ "nucleo:PA9", "sevseg1:F", "green", [] ],
+    [ "nucleo:PA10", "sevseg1:G", "green", [] ]
+  ],
+  "dependencies": {}
+}
