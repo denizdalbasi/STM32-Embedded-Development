@@ -10,14 +10,28 @@
 #if defined(NUCLEO_F103RB)
   #define RCC_USART_TX_GPIO (RCC_GPIOA)
   #define GPIO_USART_TX_PORT (GPIOA)
+<<<<<<< HEAD
   #define GPIO_USART_TX_PIN (GPIO2)
+=======
+  #define GPIO_USART_TX_PIN (GPIO2) /* Arduino-D1. */
+>>>>>>> 4e65bb33786681cd5389637acb0889251d64a9f5
 #elif defined(NUCLEO_F446RE) || \
       defined(NUCLEO_F302R8) || \
       defined(NUCLEO_L432KC)
   #define RCC_USART_TX_GPIO (RCC_GPIOA)
   #define GPIO_USART_TX_PORT (GPIOA)
+<<<<<<< HEAD
   #define GPIO_USART_TX_PIN (GPIO2) 
 
+=======
+  #define GPIO_USART_TX_PIN (GPIO2) /* Arduino-D1(MB1136) or A7(MB1180). */
+
+  /*
+   * F446RE: Table-11 in DS10693.
+   * F302R8: Table-14 in DS9896.
+   * L432KC: Table-15 in DS11451.
+   */
+>>>>>>> 4e65bb33786681cd5389637acb0889251d64a9f5
   #define GPIO_USART_AF (GPIO_AF7)
 #else
   #error "STM32 board not defined."
@@ -27,7 +41,11 @@ static void delay(uint32_t value)
 {
   for (uint32_t i = 0; i < value; i++)
   {
+<<<<<<< HEAD
     __asm__("nop"); 
+=======
+    __asm__("nop"); /* Do nothing. */
+>>>>>>> 4e65bb33786681cd5389637acb0889251d64a9f5
   }
 }
 
@@ -39,6 +57,10 @@ static void rcc_setup(void)
 
 static void usart_setup(void)
 {
+<<<<<<< HEAD
+=======
+  /* Set USART-Tx pin to alternate function. */
+>>>>>>> 4e65bb33786681cd5389637acb0889251d64a9f5
 #if defined(STM32F1)
   gpio_set_mode(GPIOA,
                 GPIO_MODE_OUTPUT_50_MHZ,
@@ -55,6 +77,10 @@ static void usart_setup(void)
               GPIO_USART_TX_PIN);
 #endif
 
+<<<<<<< HEAD
+=======
+  /* Config USART params. */
+>>>>>>> 4e65bb33786681cd5389637acb0889251d64a9f5
   usart_set_baudrate(USART2, USART_BAUDRATE);
   usart_set_databits(USART2, 8);
   usart_set_stopbits(USART2, USART_STOPBITS_1);
@@ -80,6 +106,10 @@ int main(void)
   return 0;
 }
 
+<<<<<<< HEAD
+=======
+/* For printf(). */
+>>>>>>> 4e65bb33786681cd5389637acb0889251d64a9f5
 int _write(int file, char *ptr, int len)
 {
   int i;
