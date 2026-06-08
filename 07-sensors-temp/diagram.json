@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-st-nucleo-c031c6", "id": "nucleo", "top": 0, "left": 0 },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -150, "left": 100 },
+    { "type": "wokwi-rgb-led", "id": "rgb1", "top": 100, "left": 150, "attrs": { "common": "cathode" } },
+    { "type": "wokwi-buzzer", "id": "bz1", "top": 100, "left": 250 }
+  ],
+  "connections": [
+    [ "nucleo:3V3.1", "dht1:VCC", "red", [ "h0" ] ],
+    [ "nucleo:GND.1", "dht1:GND", "black", [ "h0" ] ],
+    [ "nucleo:PA2", "dht1:SDA", "green", [ "h0" ] ],
+    [ "nucleo:PA3", "rgb1:R", "red", [ "v0" ] ],
+    [ "nucleo:PA5", "rgb1:G", "green", [ "v0" ] ],
+    [ "nucleo:GND.1", "rgb1:COM", "black", [ "h0" ] ],
+    [ "nucleo:PA4", "bz1:1", "blue", [ "h0" ] ],
+    [ "nucleo:GND.1", "bz1:2", "black", [ "h0" ] ]
+  ]
+}

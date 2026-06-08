@@ -13,7 +13,8 @@ This repository documents my transition from high-level software development int
 | **[03-Button-Interrupt](./03-Button-Interrupt/)** | EXTI Lines, NVIC Configuration, & Switch Debouncing | Completed |
 | **[04-usart_printf](./04-usart_printf/)** | UART/USART Serial Communication & Standard I/O Retargeting | Completed |
 | **[05-led-buzzer-notes](./05-led-buzzer-notes/)** | PWM Signal Generation & Passive Buzzer Frequency Control | Completed |
-| **[06-seven-segment-1to9](./06-seven-segment-1to9/)** | Multiplexing, Lookup Tables, & Digital Display Driving | In Progress |
+| **[06-seven-segment-1to9](./06-seven-segment-1to9/)** | Multiplexing, Lookup Tables, & Digital Display Driving | Completed |
+| **[07-sensors-temp](./07-sensors-temp/)** | Sensor Interfacing, & Logic-Based Alerts| In progress |
 
 ---
 
@@ -43,3 +44,8 @@ Using hardware timers to generate audio tones and control hardware components.
 ### [06-seven-segment-1to9](./06-seven-segment-1to9/)
 Driving a numeric display to count from 1 to 9 using low-level bit manipulation.
 * **Key Learning:** I created a binary lookup table to map numbers to the correct GPIO pin outputs. This project helped me understand how to manage multiple pins simultaneously without affecting other hardware registers.
+
+### [07-temp_sensor](./07-temp_sensor/)
+Monitoring environmental data and implementing conditional logic for safety alerts.
+* **Key Learning:** I learned to interface with the **DHT22 sensor**, which required precise timing protocols to read digital signals. I also implemented a color-coded warning system using an **RGB LED** and an audible buzzer that triggers based on temperature thresholds.
+* **Tools:** Developed using the Wokwi simulator to validate hardware-to-code integration before moving to physical hardware testing.
