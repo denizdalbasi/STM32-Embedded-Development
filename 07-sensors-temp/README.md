@@ -1,25 +1,41 @@
-# STM32 Temperature Alarm System
+# STM32 7-Segment Display Counter
 
-This project uses an STM32 Nucleo board to monitor the temperature. It gives you visual and sound feedback based on how hot it is.
+This project demonstrates how to control a 7-segment display using an STM32 Nucleo board. The system cycles through numbers from 0 to 9, updating the display every second.
 
 ## How it works
-* **The Sensor:** It reads the temperature using a DHT22 sensor.
-* **The Display:** It uses an RGB LED to show the status:
-    * **Green:** Everything is fine (below 30°C).
-    * **Yellow:** It is getting warm (between 30°C and 40°C).
-    * **Red:** It is too hot (above 40°C).
-* **The Alarm:** A buzzer sounds only when the temperature goes above 40°C.
+
+- **The Display:** It uses a 7-segment LED display to show digits.
+- **The Logic:** An array maps each number (0–9) to the correct segments (A–G).
+- **The Loop:** The program uses a `for` loop to count upwards, setting the required GPIO pins to high or low to form the numbers.
 
 ## What you need
-* STM32 Nucleo-C031C6 board.
-* DHT22 temperature sensor.
-* RGB LED (Common Cathode).
-* Active Buzzer.
-* Wokwi simulator.
+
+- STM32 Nucleo board (e.g., F401RE).
+- 7-segment display (Common Cathode).
+- 7 resistors (220Ω to 330Ω) to protect the segments.
+- Breadboard and jumper wires.
+
+## Wiring Connections
+
+Connect the segments of the display to the STM32 GPIO pins as follows:
+
+| Segment | STM32 Pin |
+| :------ | :-------- |
+| A       | PA0       |
+| B       | PA1       |
+| C       | PA2       |
+| D       | PA3       |
+| E       | PA4       |
+| F       | PA5       |
+| G       | PA6       |
+| Common  | GND       |
+
+[Image of 7-segment display wiring diagram]
 
 ## How to set it up
-1. **Wiring:** Connect your components to the pins defined in the `diagram.json` file. Make sure the sensor has power (3.3V) and a ground (GND) connection.
-2. **Library:** You need the **DHT sensor library** (by Adafruit). Add it to your `libraries.txt` file in Wokwi.
-3. **Code:** Copy the `sketch.ino` file into your project.
-4. **Run:** Press the "Start" button in Wokwi.
-5. **Test:** Click on the DHT22 sensor. Use the slider to change the temperature. Watch the LED color change and listen for the buzzer at high temperatures.
+
+1. **Wiring:** Connect your display segments to the STM32 pins using the resistors listed above. Ensure the common pin is connected to the GND rail.
+2. **Configuration:** Ensure that pins PA0 through PA6 are configured as `GPIO_Output` in your project settings.
+3. **Code:** Copy the provided code into your `main.c` file within your STM32CubeIDE project.
+4. **Run:** Build the project and flash it to your Nucleo board.
+5. **Test:** The display should start counting from 0 to 9, repeating the cycle continuously.

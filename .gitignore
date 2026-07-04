@@ -1,9 +1,7 @@
-# Build directories
+# Ignore build and debug artifacts
 build/
 Debug/
 Release/
-
-# Object/Compiled files
 *.o
 *.obj
 *.elf
@@ -13,7 +11,7 @@ Release/
 *.cyclo
 *.d
 
-# IDE/Project specific files
+# Ignore IDE settings
 .vscode/
 .metadata/
 .settings/
