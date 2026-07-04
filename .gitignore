@@ -1,2 +1,22 @@
-.pio/
+# Build directories
+build/
+Debug/
+Release/
+
+# Object/Compiled files
+*.o
+*.obj
+*.elf
+*.bin
+*.hex
+*.su
+*.cyclo
+*.d
+
+# IDE/Project specific files
 .vscode/
+.metadata/
+.settings/
+.project
+.cproject
+*.launch
