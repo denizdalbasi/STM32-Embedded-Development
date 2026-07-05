@@ -1,28 +1,39 @@
-# STM32 Light Sensor Project
+# STM32 Light-Sensitive LED Sequence Project
 
-This project implements a light-sensing system using an STM32 microcontroller. It uses an Analog-to-Digital Converter (ADC) to read light levels from an LDR and controls an LED based on the environmental brightness.
+This project uses an STM32 microcontroller to monitor ambient light levels using an ADC (Analog-to-Digital Converter) and control three LEDs based on the detected light intensity.
 
-## Hardware Configuration
+## Features
+- **Dark Mode (< 500):** All three LEDs blink simultaneously to indicate low light conditions.
+- **Light Mode (> 2000):** The LEDs perform a sequential pattern (1 -> 2 -> 3).
+- **Neutral Mode:** LEDs remain OFF when light levels are between the two thresholds.
 
-* **Sensor Pin:** The Light Dependent Resistor (LDR) circuit is connected to **Pin PA0**, which is mapped to **ADC1_IN0**.
-* **LED Pin:** An LED is connected to **Pin PA7** (configured as an output) to provide visual feedback based on the sensor data.
-* **Configuration:** The ADC is set to **12-bit resolution** with **Continuous Conversion Mode** enabled to allow for constant real-time monitoring of the incoming analog signal.
+## Hardware Requirements
+- STM32 Microcontroller
+- 3 LEDs
+- Light Dependent Resistor (LDR) sensor
+- Current limiting resistors for LEDs
+- Voltage divider circuit for the LDR
 
-![ADC Configuration](image-3a11c3.png)
+## Pin Configuration
+Ensure the following pins are configured as `GPIO_Output` in STM32CubeMX and labeled accordingly:
+* **PA5**: `LED1`
+* **PA6**: `LED2`
+* **PA7**: `LED3`
 
-## How the Code Works
-
-The system operates through a continuous loop that monitors light intensity:
-
-1.  **ADC Initialization:** The `MX_ADC1_Init` function configures the hardware to convert analog voltage (from the LDR) into a digital value ranging from 0 to 4095.
-2.  **Calibration:** `HAL_ADCEx_Calibration_Start` is called during setup to ensure the ADC provides the most accurate readings possible for your specific board.
-3.  **Data Acquisition:** Inside the `while(1)` loop, the program triggers `HAL_ADC_Start` and polls the conversion status to retrieve the current light value.
-4.  **Decision Logic:** * **Threshold Comparison:** The code compares the `adcValue` against a threshold of **2000**.
-    * **Bright State:** If the light level is above 2000, the LED is set to a constant `ON` state.
-    * **Dark State:** If the light level falls below 2000, the system enters a `blink` pattern, toggling the LED state every 250 milliseconds.
+> **Note:** The LDR sensor must be connected to the ADC input pin (default: **PA0**).
 
 
 
-## Logic Visualization
-To see the control flow of the sensor-to-LED logic in action, see the video below:
-[visualisation.mp4](https://github.com/denizdalbasi/STM32-Embedded-Development/blob/main/08-light-sensor/visualisation.mp4)
+## Logic Overview
+The program operates in a continuous loop:
+1.  **Read ADC:** Polls the ADC for the current light value.
+2.  **Evaluate Thresholds:**
+    * **Low Light:** Uses `HAL_GPIO_TogglePin` with a bitwise OR mask (`LED1_Pin | LED2_Pin | LED3_Pin`) to blink all at once.
+    * **High Light:** Uses a state machine (`ledStep`) to trigger one LED at a time.
+    * **Thresholding:** Implements basic hysteresis to prevent flickering between states.
+
+## How to Compile
+1.  Import the project into **STM32CubeIDE**.
+2.  Ensure `LED1_Pin`, `LED2_Pin`, and `LED3_Pin` are correctly defined in your `main.h` file.
+3.  If you encounter an error regarding `HAL_ADCEx_Calibration_Start`, simply remove that line from `main.c`, as it is not supported by all STM32F4 variants.
+4.  Build and flash to your device.
