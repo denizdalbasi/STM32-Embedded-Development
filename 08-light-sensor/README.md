@@ -8,7 +8,7 @@ This project implements a light-sensing system using an STM32 microcontroller. I
 * **LED Pin:** An LED is connected to **Pin PA7** (configured as an output) to provide visual feedback based on the sensor data.
 * **Configuration:** The ADC is set to **12-bit resolution** with **Continuous Conversion Mode** enabled to allow for constant real-time monitoring of the incoming analog signal.
 
-![ADC Configuration](image_3a11c3.png)
+![ADC Configuration](image-3a11c3.png)
 
 ## How the Code Works
 
@@ -25,4 +25,4 @@ The system operates through a continuous loop that monitors light intensity:
 
 ## Logic Visualization
 To see the control flow of the sensor-to-LED logic in action, see the video below:
-[visualisation.mp4](https://your-video-link-here)
+[visualisation.mp4](https://github.com/denizdalbasi/STM32-Embedded-Development/blob/main/08-light-sensor/visualisation.mp4)
