@@ -1,20 +1,28 @@
-# Ignore build and debug artifacts
-build/
-Debug/
-Release/
-*.o
-*.obj
-*.elf
-*.bin
-*.hex
-*.su
-*.cyclo
-*.d
+# Ignore build outputs across all projects
+**/build/
+**/Debug/
+**/Release/
+**/bin/
+**/obj/
 
-# Ignore IDE settings
-.vscode/
-.metadata/
-.settings/
-.project
-.cproject
-*.launch
+# Ignore auto-generated CubeMX toolchains and settings across all projects
+**/cmake/
+**/CMakeLists.txt
+**/CMakePresets.json
+**/*.mxproject
+**/*.launch
+**/temp/
+
+# Ignore heavy HAL Drivers and CMSIS libraries in every project subfolder
+**/Drivers/
+**/Core/Src/syscalls.c
+**/Core/Src/sysmem.c
+
+# Ignore heavy media assets (images/videos) you don't want bloating GitHub
+**/*.mp4
+**/*.png
+**/*.jpg
+**/*.jpeg
+
+# Keep backup files out
+**/*.bak
