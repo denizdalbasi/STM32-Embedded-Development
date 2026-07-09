@@ -18,12 +18,19 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+<<<<<<< HEAD
 
 /* Private includes ----------------------------------------------------------*/
+=======
+>>>>>>> fe264b420abc46053cdb427f44782555c41b04f4
 /* USER CODE BEGIN Includes */
 #include "seven_seg.h"
 /* USER CODE END Includes */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fe264b420abc46053cdb427f44782555c41b04f4
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
@@ -40,9 +47,12 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+<<<<<<< HEAD
 ADC_HandleTypeDef hadc1;
 
 TIM_HandleTypeDef htim1;
+=======
+>>>>>>> fe264b420abc46053cdb427f44782555c41b04f4
 
 /* USER CODE BEGIN PV */
 
@@ -51,15 +61,22 @@ TIM_HandleTypeDef htim1;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+<<<<<<< HEAD
 static void MX_ADC1_Init(void);
 static void MX_TIM1_Init(void);
+=======
+>>>>>>> fe264b420abc46053cdb427f44782555c41b04f4
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
+<<<<<<< HEAD
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+=======
+/* USER CODE END 0 */
+>>>>>>> fe264b420abc46053cdb427f44782555c41b04f4
 /* USER CODE END 0 */
 
 /**
@@ -91,25 +108,37 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+<<<<<<< HEAD
   MX_ADC1_Init();
   MX_TIM1_Init();
+=======
+>>>>>>> fe264b420abc46053cdb427f44782555c41b04f4
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
+<<<<<<< HEAD
   /* USER CODE BEGIN WHILE */
+=======
+    /* USER CODE BEGIN WHILE */
+>>>>>>> fe264b420abc46053cdb427f44782555c41b04f4
     while (1)
     {
       for (int i = 0; i <= 9; i++) {
         Display_Number(i);
         HAL_Delay(1000); // Wait 1 second
       }
+<<<<<<< HEAD
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
+=======
+      /* USER CODE END WHILE */
+    }
+>>>>>>> fe264b420abc46053cdb427f44782555c41b04f4
 }
 
 /**
@@ -154,6 +183,7 @@ void SystemClock_Config(void)
 }
 
 /**
+<<<<<<< HEAD
   * @brief ADC1 Initialization Function
   * @param None
   * @retval None
@@ -271,6 +301,8 @@ static void MX_TIM1_Init(void)
 }
 
 /**
+=======
+>>>>>>> fe264b420abc46053cdb427f44782555c41b04f4
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -286,10 +318,20 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
+<<<<<<< HEAD
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : PA7 */
   GPIO_InitStruct.Pin = GPIO_PIN_7;
+=======
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7
+                          |GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : PA4 PA5 PA6 PA7
+                           PA8 PA9 PA10 */
+  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7
+                          |GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10;
+>>>>>>> fe264b420abc46053cdb427f44782555c41b04f4
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

@@ -49,8 +49,11 @@ extern "C" {
 
 /* USER CODE END EM */
 
+<<<<<<< HEAD
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
+=======
+>>>>>>> fe264b420abc46053cdb427f44782555c41b04f4
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
