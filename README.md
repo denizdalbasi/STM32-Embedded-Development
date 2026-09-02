@@ -14,6 +14,8 @@ This repository tracks my progress in embedded systems development using the STM
 | **06-seven-segment-1to9** | Multiplexing GPIOs to drive a 7-segment display for counting. |
 | **07-sensors-temp** | Analog data acquisition using ADC for temperature monitoring. |
 | **08-light-sensor** | LDR-based ambient light detection with threshold-based LED logic. |
+| **09-4digits-7segment-display** | Multiplexing a 4-digit 7-segment display for multi-digit numerical output. |
+| **10-Ultrasonic-Distance-Display_Monitor** | Ultrasonic distance measurement using an HC-SR04 sensor with a 7-segment display and proximity LED feedback. |
 
 ---
 
@@ -21,8 +23,6 @@ This repository tracks my progress in embedded systems development using the STM
 * **Hardware:** STM32F4 series development boards.
 * **Toolchain:** STM32CubeIDE & STM32CubeMX.
 * **Methodology:** Manual peripheral configuration vs. HAL abstraction.
-
-
 
 ---
 *Created as a personal learning journey in embedded C programming.*
